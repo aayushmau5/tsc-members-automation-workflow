@@ -1,0 +1,15 @@
+name: Do stuff on check-file changes
+
+on:
+  pull_request:
+    branches: [master]
+    types: [closed]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for file changes
+        if: |
+          github.event.action == 'closed' &&
+          github.event.pull_request.merged == true
