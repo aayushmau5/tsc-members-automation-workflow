@@ -13,3 +13,4 @@ jobs:
         if: |
           github.event.action == 'closed' &&
           github.event.pull_request.merged == true
+        run:

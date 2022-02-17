@@ -13,5 +13,12 @@
     "linkedin": "SecondPerson",
     "availableForHire": false,
     "repos": ["Something"]
+  },
+  {
+    "name": "ThirdPerson",
+    "github": "ThirdPerson",
+    "linkedin": "ThirdPerson",
+    "availableForHire": false,
+    "repos": ["None"]
   }
 ]
