@@ -1,16 +1,16 @@
 name: Do stuff on check-file changes
 
-on: push
-# pull_request:
-#   branches: [master]
-#   types: [closed]
+on:
+  pull_request:
+    branches: [master]
+    types: [closed]
 
 jobs:
   generate-previous-file:
     runs-on: ubuntu-latest
-    # if: |
-    #   github.event.action == 'closed' &&
-    #   github.event.pull_request.merged == true
+    if: |
+      github.event.action == 'closed' &&
+      github.event.pull_request.merged == true
     steps:
       # - name: Get old file
       #   run: git cat-file -p HEAD^:./check-file.json > previous-check-file.json
