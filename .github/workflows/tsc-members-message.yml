@@ -1,9 +1,7 @@
 name: Do stuff on check-file changes
 
 on:
-  pull_request:
-    branches: [master]
-    types: [closed]
+  push
 
 jobs:
   generate-previous-file:
@@ -12,15 +10,14 @@ jobs:
       github.event.action == 'closed' &&
       github.event.pull_request.merged == true
     steps:
-      # - name: Get old file
-      #   run: git cat-file -p HEAD^:./check-file.json > previous-check-file.json
-      # - run: |
-      #     mkdir diff
-      #     cd diff
-      # - uses: actions/setup-node@v2
-      #   with:
-      #     node-version: "14"
-      # - run: npm install
+      - name: Get old file
+        run: git cat-file -p HEAD^:./check-file.json > previous-check-file.json
+      - run: mkdir diff
+      - working-directory: diff
+#       - uses: actions/setup-node@v3.0.0
+#         with:
+#            node-version: "14"
+#       - run: npm install
       - name: Find diff between files
         uses: actions/github-script@v6
         with:
