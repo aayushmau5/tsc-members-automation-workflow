@@ -12,8 +12,8 @@ jobs:
     steps:
       - name: Get old file
         run: git cat-file -p HEAD^:./check-file.json > previous-check-file.json
-      - run: mkdir diff
-      - working-directory: diff
+#       - run: mkdir diff
+#       - working-directory: diff
 #       - uses: actions/setup-node@v3.0.0
 #         with:
 #            node-version: "14"
